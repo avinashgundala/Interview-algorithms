@@ -1,0 +1,24 @@
+#special pattern recognition (parentheses)
+st = input()
+#let's make a empty stack 
+queue = []
+#we will make conform stack is empty
+def isempty(a):
+	return len(queue)==0
+#let's push left parentheses into stack    
+for i in range(len(st)):  
+    if st[i] == '(' :
+    	queue.append(st[i])
+#if pattern start with right parentheses
+#imperfect pattern       
+    elif st[i] == ')':
+    	if isempty(queue) :
+    		queue.append(st[i])
+    		print('pattern is imperfect')
+    	else:	
+#pop left parentheses as pattern match with right            
+            queue.pop()	
+    else:
+    	print('empty pattern')        
+if isempty(queue):  
+    print('perfect pattern')    
